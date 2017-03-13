@@ -7,7 +7,7 @@
 			};
 
 			// Set total time
-			var time = 10;
+			var time = 20;
 
 			// Set time interval
 			var intervalId;
@@ -45,8 +45,6 @@
  			
 			// Set answers
 			var correctC = ["1955", "18", "Pirates of the Caribbean", "1986", "Sleeping Beauty"];
-
-			// var wrongC = ["1949", "1891", "1965", "20", "100", "35", "Haunted Mansion", "Fantasmic!", "Snow White’s Scary Adventures", "2001", "1999", "2050", "Arial", "Cinderella", "Elsa"];
 
 			// Store correct answers in input
 			$("#1_3").data("C", correctC[0]);
@@ -142,6 +140,7 @@
 
 			console.log(answerCount);
 
+			// Create function to count the numbers of correct and wrong answers
 			function getCount() {
 
 				for( var i = 0; i < questionsTotal; i++) {
@@ -167,10 +166,12 @@
 
 			};
 
-
+			// Make the submit button call the function
 			$(".submitbtn").on("click", function() {
 
 				getCount();
+
+				// Stop the countdown
 				clearInterval(intervalId);
 
 				console.log("After sumbit:", answerCount);
@@ -183,10 +184,5 @@
 				$(".finalUnanswered").html("Unanswered: " + unasnwered);
 
 			});
-
-			
-				// $(".finalCorrect").html("Correct Answers: " + correctTotal);
-				// $(".finalWrong").html("Wrong Answers: " + wrongTotal);
-				// $(".finalUnanswered").html("Unanswered: " + unasnwered);
 			
 		});
