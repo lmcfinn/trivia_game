@@ -3,7 +3,8 @@
 
  			// Click to start coundDown
 			window.onload = function() {
-				$(".startbtn").on("click", countDown.start);
+				// $(".startbtn").on("click", countDown.start());
+				countDown.start();
 			};
 
 			// Set total time
@@ -26,10 +27,11 @@
     				if(time == 0) {
   						clearInterval(intervalId);
   						getCount();
+  						// window.location.href = "result.html";
   						$(".finalCorrect").html("Correct Answers: " + correctTotal);
 						$(".finalWrong").html("Wrong Answers: " + wrongTotal);
 						$(".finalUnanswered").html("Unanswered: " + unasnwered);
-  				// 		window.location.href = "result.html";
+  						
   					}
   				}
 			};
@@ -162,7 +164,7 @@
 					}
 				}
 
-				unasnwered = questionsTotal - correctTotal -wrongTotal;
+				unasnwered = questionsTotal - correctTotal - wrongTotal;
 
 				console.log("Correct count:", correctTotal);
 				console.log("Wrong count:", wrongTotal);
@@ -174,6 +176,8 @@
 			$(".submitbtn").on("click", function() {
 
 				getCount();
+
+				// window.location.href = "result.html";
 
 				// Stop the countdown
 				clearInterval(intervalId);
