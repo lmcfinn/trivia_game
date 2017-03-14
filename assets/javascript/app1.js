@@ -149,11 +149,15 @@
 						
 						correctTotal++;
 						
+						// return correctTotal++;
+						
 					}
 
 					if(answerCount[i] === "false") {
 						
 						wrongTotal++;
+
+						// return wrongTotal++;
 						
 					}
 				}
