@@ -27,10 +27,10 @@
     				if(time == 0) {
   						clearInterval(intervalId);
   						getCount();
-  						// window.location.href = "result.html";
-  						$(".finalCorrect").html("Correct Answers: " + correctTotal);
-						$(".finalWrong").html("Wrong Answers: " + wrongTotal);
-						$(".finalUnanswered").html("Unanswered: " + unasnwered);
+  						window.location.href = "result.html";
+  						$(".finalCorrect").html("Correct answers: " + correctFinal);
+						$(".finalWrong").html("Wrong answers: " + wrongFinal);
+						$(".finalUnanswered").html("Unaswered: " + unansweredFinal);
   						
   					}
   				}
@@ -164,11 +164,15 @@
 					}
 				}
 
-				unasnwered = questionsTotal - correctTotal - wrongTotal;
+				unanswered = questionsTotal - correctTotal - wrongTotal;
 
-				console.log("Correct count:", correctTotal);
-				console.log("Wrong count:", wrongTotal);
-				console.log("unanswered:", unasnwered);
+				console.log("not answered", unanswered)
+
+
+				localStorage.setItem("correct count", correctTotal);
+				localStorage.setItem("wrong count", wrongTotal);
+				localStorage.setItem("unanswered count", unanswered);
+
 
 			};
 
@@ -177,20 +181,30 @@
 
 				getCount();
 
-				// window.location.href = "result.html";
-
 				// Stop the countdown
 				clearInterval(intervalId);
+
+				window.location.href = "result.html";
 
 				console.log("After sumbit:", answerCount);
 				console.log("After submit correct count:", correctTotal);
 				console.log("After submit wrong count:", wrongTotal);
-				console.log("After submit unanswered:", unasnwered);
-
-				$(".finalCorrect").html("Correct Answers: " + correctTotal);
-				$(".finalWrong").html("Wrong Answers: " + wrongTotal);
-				$(".finalUnanswered").html("Unanswered: " + unasnwered);
-
+				console.log("After submit unanswered:", unanswered);
+				
 			});
+
+			// Doesn't work
+			// $(".finalCorrect").locatStorage.getItem("correct count").html("Correct Answers: " + correctTotal);
+			// $(".finalWrong").locatStorage.getItem("wrong count").html("Wrong Answers: " + wrongTotal);
+			// $(".finalUnanswered").locatStorage.getItem("unanswered").html("Unanswered: " + unanswered);
+
+			var correctFinal = localStorage.getItem("correct count");
+			var wrongFinal = localStorage.getItem("wrong count");
+			var unansweredFinal = localStorage.getItem("unanswered count");
+
+			$(".finalCorrect").html("Correct answers: " + correctFinal);
+			$(".finalWrong").html("Wrong answers: " + wrongFinal);
+			$(".finalUnanswered").html("Unaswered: " + unansweredFinal);
+
 			
 		});
